@@ -15,7 +15,7 @@ public class ParentTest {
 	public static void setUp() {
 		//System.setProperty("webdriver.chrome.driver", "C:\\automation\\drivers\\chromedriver.exe");  //propiedad explorador chrome		
 		driver = new ChromeDriver();  //driver de chrome
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		driver.navigate().to("http:\\imdb.com");//navegar a la pagina de IMDB.com
 	}
 
@@ -50,7 +50,6 @@ public class ParentTest {
 		//verificar que el director sea correcto
 		verifyLinkExists(movieStar);
 	}
-
 
 	private static void clickMovieLink(String movieName, String movieYear) {
 		String movieLinkXpath = "//td[contains(.,'"+ movieYear +"')]//a[contains(text(), '"+ movieName +"')]";

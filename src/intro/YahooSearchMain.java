@@ -10,34 +10,32 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class YahooSearchMain {
-	
-	
 
 	public static void main(String[] args) {
 		//INICIALIZACION DE SYSTEM.SETPROPERTY()
 	    WebDriver driver;
 		driver = new ChromeDriver();
-		driver.manage().timeouts().implicitlyWait(30,  TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(5,  TimeUnit.SECONDS);
 		driver.get("http://www.yahoo.com");
-		WebElement searchBox = driver.findElement(By.id("uh-search-box"));
-		WebElement searchButton = driver.findElement(By.id("uh-search-button"));
+		WebElement searchBox = driver.findElement(By.id("header-search-input"));//localiza elemento de busqueda
+		WebElement searchButton = driver.findElement(By.id("header-desktop-search-button"));//Localiza elemento del boton de busqueda
 		
-		searchBox.clear();
-		searchBox.sendKeys("Selenium");
-		searchButton.click();
+		searchBox.clear(); //limpia el campo
+		searchBox.sendKeys("Selenium"); //agrega datos al campo de search
+		searchButton.click(); //da click al boton de busqueda
 		
-		WebElement seleniumLink = driver.findElement(By.linkText("Selenium - Web Browser Automation"));
-		seleniumLink.click();
+		WebElement seleniumLink = driver.findElement(By.linkText("Downloads - Selenium"));//encontrar el titulo en las ligas
+		seleniumLink.click(); //dar click
 		
-		ArrayList<String> windowIds = new ArrayList<String>(driver.getWindowHandles());
-		System.out.println("Number of windows: " + windowIds.size());
+		ArrayList<String> windowIds = new ArrayList<String>(driver.getWindowHandles()); //
+		System.out.println("Number of windows: " + windowIds.size()); //Dice el numero de ventanas que se abren
 		
 		for(String windowId: driver.getWindowHandles()) {
-			driver.switchTo().window(windowId);
+			driver.switchTo().window(windowId);//Cambia a la nueva ventana
 		}
 		
-		WebElement downloadLink = driver.findElement(By.linkText("Download"));
-		downloadLink.click();
+		WebElement downloadLink = driver.findElement(By.linkText("Download"));//Busca el link Download pero por "texto"
+		downloadLink.click();//Le da click al link
 		
 		driver.close();
 

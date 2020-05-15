@@ -20,7 +20,7 @@ public class WebElementsTest {
 	public static void main(String[] args) {
 
 		WebDriver driver = new ChromeDriver();
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 
 		driver.get("http://songs-by-sinatra.herokuapp.com");
 

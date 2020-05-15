@@ -20,7 +20,7 @@ public class YahooSearchMethods {
 
 		searchYahoo("Selenium");
 		
-		clickLink("Selenium - Web Browser Automation");
+		clickLink("Downloads - Selenium");
 
 		selectPopUp();
 
@@ -48,8 +48,8 @@ public class YahooSearchMethods {
 
 	private static void searchYahoo(String topic) {
 		//busqueda
-		WebElement searchBox = driver.findElement(By.id("uh-search-box"));
-		WebElement searchButton = driver.findElement(By.id("uh-search-button"));
+		WebElement searchBox = driver.findElement(By.id("header-search-input"));
+		WebElement searchButton = driver.findElement(By.id("header-desktop-search-button"));
 
 		searchBox.clear();
 		searchBox.sendKeys(topic);
